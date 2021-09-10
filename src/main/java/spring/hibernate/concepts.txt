@@ -1,0 +1,21 @@
+/* In hibernate.cfg.xml in <property name="connection.url">jdbc:mysql://127.0.0.1:7777/hr_db</property> - hr_db - is DB name, ! not connection's name (Local_HR_DB)
+Конфигурировать связь между классом и таблицей можно 2-мя способами:
+•С помощью XML файла
+•С помощью Java аннотаций
+
+В данном приложении использован способ с помощью Java аннотаций
+
+Набор параметров конфигурации, предоставляется в виде файла свойств Java с именем spring.hibernate.properties
+или в виде файла XML с именем spring.hibernate.cfg.xml, в скобках .configure("filename ") обязательно пишем название файла.
+После чего SessionFactory знает, как должны создаваться сессии /создается 1 раз и затем можно его переиспользовать.
+
+SessionFactory factory = new Configuration() .... //SessionFactory–фабрика по производству сессий, читает файл spring.hibernate.cfg.xml через new Configuration из org.spring.hibernate.cfg.
+                             .configure("spring.hibernate.cfg.xml")...//(в данном случае не обязательно писать его в скобках, но желательно, для читаемости кода)
+                             .addAnnotatedClass(Employee.class) ... //в скобках указываем класс, где указаны все аннотации
+                             .buildSessionFactory(); ... // вызываем метод для построения SessionFactory
+  Session session = factory.getCurrentSession();...//создаем сессию с помощью SessionFactory Session –это обёртка вокруг подключения к базе с помощью JDBC и основа для работы с Java Объектами в SQL
+  Жизненный цикл Session не велик. Мы получаем Session, делаем с помощью неё определённые операции и она становится не нужной
+*/
+
+Если файлы отображений находятся в classpath, используйте addResource(). (http://spring.hibernate-refdoc.3141.ru/ch3.Configuration)
+
