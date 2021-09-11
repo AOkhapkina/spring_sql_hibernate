@@ -1,9 +1,9 @@
-package spring.hibernate;
+package hibernateMySQL;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import spring.hibernate.entity.Employee;
+import hibernateMySQL.entity.Employee;
 
 public class Test5Delete {
     public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package spring.hibernate;
+package hibernateMySQL;
 /*
   */
 
+import hibernateMySQL.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import spring.hibernate.entity.Employee;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class Test3Get_HQL {
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction(); //обязательно открыть транзакцию (BEGIN||START TRANSACTION - mySQL)
-            List<Employee> emps = session.createQuery("from Employee " + " where firstname = 'Aleksandr' AND surname = 'Lenin'").getResultList();// createQuery("from Employee")!!!название из Java кода, не из MySQL
+            List<Employee> emps = session.createQuery("from Employee2 " + " where firstname = 'Aleksandr' AND surname = 'Lenin'").getResultList();// createQuery("from Employee")!!!название из Java кода, не из MySQL
             for (Employee e: emps){
                 System.out.println(e);
             }

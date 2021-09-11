@@ -1,4 +1,4 @@
-package spring.hibernate.entity;
+package hibernateMySQL.entity;
 /*
 JPA (Java Persistence API) –это стандартная спецификация, которая описывает систему для управления сохранением Java объектов в таблицы базы данных
 Hibernate –самая популярная реализация спецификации JPA.
