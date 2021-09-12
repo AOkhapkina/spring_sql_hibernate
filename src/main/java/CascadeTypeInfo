@@ -1,0 +1,9 @@
+@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+каскадное выполнение во всех связанных таблицах (не только для Entity, на котором операция вызывается, но и на связанных с ним Entity)
+!!! подходит не для всех таблиц!
+!!!CascadeType.ALL:
+!!! При удалении одного работника удалится весь департамент, а с ним и все сотрудники этого департамента, что недопустимо.
+Если не использовать CascadeType.ALL, то не будет каскадного добавления в методе save(), т.к. в javax.persistence.*, который импортируется, нет SAVE.
+А в hibernate есть SAVE и PERSIST, и когда мы делаем save(), hibernate не выполняет этот метод для связанных таблиц и выдает Error
+
+решение: использовать метод session.persist() вместо session.save()

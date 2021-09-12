@@ -1,15 +1,12 @@
-package OneToManyBIDirectional;
+package hibernateOneToManyBIDirectional;
 
-import OneToManyBIDirectional.entity.Department;
-import OneToManyBIDirectional.entity.Employee2;
-import OneToOneRelation.entity.Employee;
+import hibernateOneToManyBIDirectional.entity.Department;
+import hibernateOneToManyBIDirectional.entity.Employee2;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import javax.persistence.CascadeType;
-
-public class Test2DeleteIncorrect {
+public class Test2DeleteWrong {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration().configure().addAnnotatedClass(Employee2.class).addAnnotatedClass( Department.class).buildSessionFactory();
         Session session = null;

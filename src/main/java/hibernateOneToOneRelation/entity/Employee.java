@@ -1,4 +1,4 @@
-package OneToOneRelation.entity;
+package hibernateOneToOneRelation.entity;
 
 import lombok.*;
 

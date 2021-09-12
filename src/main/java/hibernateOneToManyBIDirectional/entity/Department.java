@@ -1,4 +1,4 @@
-package OneToManyBIDirectional.entity;
+package hibernateOneToManyBIDirectional.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

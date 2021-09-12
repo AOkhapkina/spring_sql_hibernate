@@ -1,9 +1,8 @@
-package OneToManyBIDirectional.entity;
+package hibernateOneToManyBIDirectional.entity;
 //Source table - Employee - таблица-источник данных, с которой будет сравниваться целевая таблица,
 //в данном примере здесь указан FK @JoinColumn(name = "department_id"), но это не обязательное условие, FK может быть и в таргет-таблице
 //Target table - Department - целевая таблица, именно в нее данные будут добавлены, изменены или удалены в результате выполнения оператора.
 
-import OneToOneRelation.entity.Detail;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +27,7 @@ public class Employee2 {
     @Column(name= "salary")
     private int salary;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH}) // каскадное выполнение всех операций во всех связанных таблицах (только для Entity, на котором операция вызывается, но и на связанных с ним Entity), !!! подходит не для всех таблиц. При удалении одного работника удаляются все данные на него из таблицы "детали"
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     @JoinColumn(name = "department_id") // - @JoinColumn - всегда указывает на столбец с foreign key (FK), осуществляющий связь с другим объектом
     private Department department;
 
